@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/Inicio.css">
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg  bg-dark ">
+      <a class="nav-link text-white" href="#">Analiticas</a>
+      <p class="text-white">{{ data['usuario'] }}</p>
+      <form action="/"> <input class="boton" type="submit" value="Log out" > </form>
+      <form action="/curso"> <input class="boton" type="submit" value="Inscribir Curso" > </form>
+    </nav>
+    <div class="tarjetas">
+      <h2>Tus cursos Inscritos:</h2>
+      <div class="row">
+        {% for i in data['inscritos'] %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename ='Images/6.jpg' )}}" alt="Card image cap">
+              <div class="card-body">
+                  {% if 'Nombre' in data['inscritos'][i]  %}<p class="titulo card font-weight-bold">{{ data['inscritos'][i]['Nombre'] }}</p>
+                  {% else %}<p class="titulo card"></p> {% endif %}
+
+                  {% if 'categoria' in data['inscritos'][i] %} <div class=" card-text">Categoria: {{ data['inscritos'][i]['categoria'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                  {% if 'horas' in data['inscritos'][i] %} <div class=" card-text">Duración: {{ data['inscritos'][i]['horas'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                </div>
+            </div>
+      </div>
+        {% endfor %}
+      </div>
+      <h2>Por has visto cursos de tema:</h2>
+      <div class="row">
+        {% for i in data['cursoPorSubject'] %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename ='Images/1.jpg' )}}" alt="Card image cap">
+              <div class="card-body">
+                  {% if 'Nombre' in data['cursoPorSubject'][i]  %}<p class="titulo card font-weight-bold">{{ data['cursoPorSubject'][i]['Nombre'] }}</p>
+                  {% else %}<p class="titulo card"></p> {% endif %}
+                  {% if 'Descripcion' in data['cursoPorSubject'][i] %} <p class="card-text">{{ data['cursoPorSubject'][i]['Descripcion'] }}</p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+
+                  {% if 'Idioma' in data['cursoPorSubject'][i] %} <div class=" card-text">Nivel: {{ data['cursoPorSubject'][i]['Idioma'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                  {% if 'Fecha inicio' in data['cursoPorSubject'][i] %} <div class=" card-text">Fecha inicio: {{ data['cursoPorSubject'][i]['Fecha inicio'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'subject' in data['cursoPorSubject'][i] %} <div class=" card-text">Tema: {{ data['cursoPorSubject'][i]['subject'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'Url' in  data['cursoPorSubject'][i] %}<a href="{{  data['cursoPorSubject'][i]['Url'] }}">Ir al curso</a> <p class="card-text"></p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+
+                </div>
+            </div>
+      </div>
+        {% endfor %}
+      </div>
+      <h2>Por has visto cursos de Idioma:</h2>
+      <div class="row">
+        {% for i in data['cursoPorIdioma'] %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename ='Images/2.jpg' )}}" alt="Card image cap">
+              <div class="card-body">
+                  {% if 'Nombre' in data['cursoPorIdioma'][i]  %}<p class="titulo card font-weight-bold">{{ data['cursoPorIdioma'][i]['Nombre'] }}</p>
+                  {% else %}<p class="titulo card"></p> {% endif %}
+                  {% if 'Descripcion' in data['cursoPorIdioma'][i] %} <p class="card-text">{{ data['cursoPorIdioma'][i]['Descripcion'] }}</p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+
+                  {% if 'Idioma' in data['cursoPorIdioma'][i] %} <div class=" card-text">Idioma: {{ data['cursoPorIdioma'][i]['Idioma'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                  {% if 'Fecha inicio' in data['cursoPorIdioma'][i] %} <div class=" card-text">Fecha inicio: {{ data['cursoPorIdioma'][i]['Fecha inicio'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <h2>Por has visto cursos de tipo:</h2>
+      <div class="row">
+        {% for i in data['cursoPorProgreso'] %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename ='Images/3.jpg' )}}" alt="Card image cap">
+              <div class="card-body">
+                  {% if 'Nombre' in data['cursoPorProgreso'][i]  %}<p class="titulo card font-weight-bold">{{ data['cursoPorProgreso'][i]['Nombre'] }}</p>
+                  {% else %}<p class="titulo card"></p> {% endif %}
+                  {% if 'Descripcion' in data['cursoPorProgreso'][i] %} <p class="card-text">{{ data['cursoPorProgreso'][i]['Descripcion'] }}</p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+
+                  {% if 'Idioma' in data['cursoPorProgreso'][i] %} <div class=" card-text">Idioma: {{ data['cursoPorProgreso'][i]['Idioma'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                  {% if 'Fecha inicio' in data['cursoPorProgreso'][i] %} <div class=" card-text">Fecha inicio: {{ data['cursoPorProgreso'][i]['Fecha inicio'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'Progress' in data['cursoPorProgreso'][i] %} <div class=" card-text">tipo: {{ data['cursoPorProgreso'][i]['Progress'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'Url' in  data['cursoPorProgreso'][i] %}<a href="{{  data['cursoPorProgreso'][i]['Url'] }}">Ir al curso</a> <p class="card-text"></p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+                </div>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+      <h2>Por has visto cursos de duracion:</h2>
+      <div class="row">
+        {% for i in data['cursoPorHora'] %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename ='Images/4.jpg' )}}" alt="Card image cap">
+              <div class="card-body">
+                  {% if 'Nombre' in data['cursoPorHora'][i]  %}<p class="titulo card font-weight-bold">{{ data['cursoPorHora'][i]['Nombre'] }}</p>
+                  {% else %}<p class="titulo card"></p> {% endif %}
+                  {% if 'Descripcion' in data['cursoPorHora'][i] %} <p class="card-text">{{ data['cursoPorHora'][i]['Descripcion'] }}</p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+
+                  {% if 'Idioma' in data['cursoPorHora'][i] %} <div class=" card-text">Idioma: {{ data['cursoPorHora'][i]['Idioma'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                  {% if 'Fecha inicio' in data['cursoPorHora'][i] %} <div class=" card-text">Fecha inicio: {{ data['cursoPorHora'][i]['Fecha inicio'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'horas' in data['cursoPorHora'][i] %} <div class=" card-text"> Horas: {{ data['cursoPorHora'][i]['horas'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'Url' in  data['cursoPorHora'][i] %}<a href="{{  data['cursoPorHora'][i]['Url'] }}">Ir al curso</a> <p class="card-text"></p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+                </div>
+            </div>
+      </div>
+        {% endfor %}
+      </div>
+      <h2>Por has visto cursos de nivel :</h2>
+      <div class="row">
+        {% for i in data['cursoPorNivel'] %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename ='Images/5.jpg' )}}" alt="Card image cap">
+              <div class="card-body">
+                  {% if 'Nombre' in data['cursoPorNivel'][i]  %}<p class="titulo card font-weight-bold">{{ data['cursoPorNivel'][i]['Nombre'] }}</p>
+                  {% else %}<p class="titulo card"></p> {% endif %}
+                  {% if 'Descripcion' in data['cursoPorNivel'][i] %} <p class="card-text">{{ data['cursoPorNivel'][i]['Descripcion'] }}</p>
+                  {% else %}<p class="card-text"></p> {% endif %}
+
+                  {% if 'Idioma' in data['cursoPorNivel'][i] %} <div class=" card-text">Idioma: {{ data['cursoPorNivel'][i]['Idioma'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                  {% if 'Fecha inicio' in data['cursoPorNivel'][i] %} <div class=" card-text">Fecha de Inicio: {{ data['cursoPorNivel'][i]['Fecha inicio'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+
+                  {% if 'Nivel' in data['cursoPorNivel'][i] %} <div class=" card-text">Nivel: {{ data['cursoPorNivel'][i]['Nivel'] }}</div>
+                  {% else %}<div class=" card-text"></div> {% endif %}
+                </div>
+            </div>
+      </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/stylecurso.css')}}">
+  </head>
+  
+  <body>
+  <div class="Cuadrado-fondo">
+    <div class="row colorcuadro" >
+      <div class="col">
+        <img src="{{ url_for('static', filename ='Images/cursos.jpg' )}}"  class="imagenLogin" alt="">
+      </div>
+      <div class="col cuadro-form">
+        <form method="POST" action="https://rocky-reaches-44751.herokuapp.com/nuevoCurso">
+          <div class="form-group">
+            <label for="Nombre_curso">Nombre del curso</label>
+            <input type="text" class="form-control" id="Nombre_curso" name = "Nombre_curso" required>
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="Descripción">Descripción del curso</label>
+            <textarea class="form-control" id="Descripción" name="Descripción" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="Categoria">Categoria</label>
+            <input type="text" class="form-control" id="Categoria" name="Categoria" placeholder="tecnología, investigación">
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="Subtema">Subtema</label>
+            <input type="text" class="form-control" id="Subtema" name="Subtema" >
+          </div>
+          <div class="form-group">
+            <label for="Audiencia">Audiencia</label>
+            <input type="text" class="form-control" id="Audiencia"  name="Audiencia" placeholder="El curso esta dedicado a ... ">
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="Instituto">Instituto</label>
+            <input type="text" class="form-control" id="Instituto" name="Instituto" placeholder="MIT">
+          </div>
+          <div class="form-group">
+            <label for="Competencias">Competencias</label>
+            <input type="text" class="form-control" id="Competencias" name="Competencias" placeholder="Comprensión lectora">
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="Fecha_inicio">Fecha inicio</label>
+            <input type="date" class="form-control" id="Fecha_inicio" name="Fecha_inicio" >
+          </div>
+          <div class="form-group">
+            <label for="Fecha_fin">Fecha fin</label>
+            <input type="date" class="form-control" id="Fecha_fin" name="Fecha_fin" >
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="plataforma">Plataforma</label>
+            <select class="form-control" id="plataforma" name="plataforma">
+              <option>EDX</option>
+              <option>BID</option>
+              <option>GCFGlobal</option>
+            </select>
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="URL_cuso">URL cuso</label>
+            <input type="url" class="form-control" id="URL_cuso"  name="URL_cuso">
+          </div>
+          <div class="form-group ">
+            <label for="Duración">Duración</label>
+            <input type="number" class="form-control" id="Duración"  name="Duración">
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semanas" value="option1" name="semanas">
+            <label class="form-check-label" for="semanas">Semanas</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Horas" name="Horas" value="option2">
+            <label class="form-check-label" for="Horas">Horas</label>
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="Forma_curso">Modalidad</label>
+            <select class="form-control" id="Forma_curso" name="Forma_curso">
+              <option>Instructed-paced</option>
+              <option>MOOC</option>
+              <option>Recursos educativos abiertos</option>
+              <option>Self-Paced</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Costo">Costo</label>
+            <select class="form-control" id="Costo" name="Costo">
+              <option>Gratuito</option>
+              <option>Costo para inscribirse</option>
+            </select>
+          </div>
+          <div class="form-group Contraseñas">
+            <label for="Nivel">Nivel</label>
+            <select class="form-control" id="Nivel" name="Nivel">
+              <option>Avanzado</option>
+              <option>Intermedio</option>
+              <option>Introductorio</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Idioma">Idioma</label>
+            <select class="form-control" id="Idioma" name="Idioma">
+              <option>Arabic</option>
+              <option>Bahasa</option>
+              <option>Chinese</option>
+              <option>Dutch</option>
+              <option>Español</option>
+              <option>Frances</option>
+              <option>Greek</option>
+              <option>Inglés</option>
+              <option>Italiano</option>
+              <option>Kyrgyz</option>
+              <option>Norsk</option>
+              <option>Portugues</option>
+              <option>Russian</option>
+              <option>Sinhala</option>
+              <option>Urdu</option>
+            </select>
+          </div>
+          <center><button type="submit" class="btn btn-primary login">Submit</button></center> 
+        </form>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

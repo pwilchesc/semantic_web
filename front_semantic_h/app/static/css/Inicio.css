@@ -1,0 +1,44 @@
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #f8e6d7;
+}
+
+main {
+  width: calc(100% - 60px);
+  margin-left: 60px;
+  min-height: 100vh;
+  /* padding-left: 60px; */
+}
+
+navbar{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  align-content: end;
+}
+
+.banner{
+  height: 40%;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.img_banner{
+  width: 100% ;
+}
+
+.centrado{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,42 @@
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #eed2d2;
+}
+
+main {
+  width: calc(100% - 60px);
+  margin-left: 60px;
+  min-height: 100vh;
+  /* padding-left: 60px; */
+}
+
+.Cuadrado-fondo{
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.imagenLogin{
+  position: relative;
+  width: 100%;
+
+}
+.colorcuadro{
+  background-color: white;
+}
+
+.cuadro-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Contraseñas{
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
